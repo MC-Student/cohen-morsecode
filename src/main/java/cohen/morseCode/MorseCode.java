@@ -71,6 +71,6 @@ public class MorseCode
             }
         }
 
-        return String.valueOf(result);
+        return result.toString();
     }
 }
