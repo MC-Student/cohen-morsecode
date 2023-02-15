@@ -1,23 +1,21 @@
 package cohen.morseCode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MorseCode
 {
-    private static final String[] alphabet = new String[]{" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private final ArrayList<String> english = new ArrayList<>();
 
-    private static final String[] code = new String[]
-            {"       ", "*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--", "-*", "---",
-                    "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**"};
     private final ArrayList<String> morseCode = new ArrayList<>();
 
     public MorseCode()
     {
-        english.addAll(List.of(alphabet));
-        morseCode.addAll(List.of(code));
+        Collections.addAll(english, " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+                "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+        Collections.addAll(morseCode, "       ", "*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--", "-*", "---",
+                "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**");
     }
 
     public String toMorseCode(String input)
@@ -45,7 +43,7 @@ public class MorseCode
             }
         }
 
-        return String.valueOf(result.substring(0, result.length() - 3));
+        return result.substring(0, result.length() - 3);
     }
 
     public String toMessage(String morse)
