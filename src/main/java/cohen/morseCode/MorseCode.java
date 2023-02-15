@@ -6,16 +6,18 @@ import java.util.List;
 
 public class MorseCode
 {
-    private final ArrayList<String> english = new ArrayList<>();
+    private final List<String> english = List.of(" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-    private final ArrayList<String> morseCode = new ArrayList<>();
+    private final List<String> morseCode = List.of("       ", "*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--", "-*", "---",
+            "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**");
 
     public MorseCode()
     {
-        Collections.addAll(english, " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+        /*Collections.addAll(english, " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
                 "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
         Collections.addAll(morseCode, "       ", "*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--", "-*", "---",
-                "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**");
+                "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**");*/
     }
 
     public String toMorseCode(String input)
@@ -52,9 +54,9 @@ public class MorseCode
 
         StringBuilder result = new StringBuilder();
 
-        for (int j = 0; j < words.length; j++)
+        for (int i = 0; i < words.length; i++)
         {
-            String[] oneWord = words[j].split("   ");
+            String[] oneWord = words[i].split("   ");
 
             for (String s : oneWord)
             {
@@ -63,7 +65,7 @@ public class MorseCode
                 result.append(found);
             }
 
-            if (j != words.length - 1)
+            if (i != words.length - 1)
             {
                 result.append(" ");
             }
